@@ -1,0 +1,26 @@
+<h1><%= @user.first_name %>  <%= @user.last_name %>'s Photos</h1>
+
+<% @photos.each do | photo | %>
+  <%= image_tag photo.file_name %>
+  <text><br>Photo Posted <%= photo.date_time %></text>
+  <table>
+    <tr>
+      <th>Comment Id</th>
+      <th>First</th>
+      <th>Last</th>
+      <th>Message</th>
+      <th>Posted</th>
+    </tr>
+    <% Comment.where(photo_id: photo.id).each do | comment | %>
+      <% test = User.find(comment.user_id)%>
+    <tr>
+      <th><%= comment.id %></th>
+      <th><a href="<%= test.id %>"><%= test.first_name %></a></th>
+      <th><a href="<%= test.id %>"><%= test.last_name %></a></th>
+      <th><%= comment.comment_text %></th>
+      <th><%= comment.date_time %></th>
+    </tr>
+    <% end %>
+  </table>
+
+<% end %>

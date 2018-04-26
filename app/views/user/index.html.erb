@@ -1,0 +1,16 @@
+<h1>Photo Site Users</h1>
+<table>
+  <tr>
+    <th>User Id</th>
+    <th>First</th>
+    <th>Last</th>
+  </tr>
+
+  <% @users_all.each do | user | %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><a href="../photo/index/<%= user.id %>"><%= user.first_name %></a></td>
+    <td><a href="../photo/index/<%= user.id %>"><%= user.last_name %></a></td>
+  </tr>
+  <% end %>
+</table>
