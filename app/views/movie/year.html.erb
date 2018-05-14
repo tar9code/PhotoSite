@@ -1,0 +1,16 @@
+<h1>Movies</h1>
+<table>
+  <tr>
+    <th>Year</th>
+    <th>Title</th>
+  </tr>
+
+  <% @result.each() do | movie | %>
+    <tr>
+    <% movie.each do | element| %>
+        <td><%= element %></td>
+    <% end %>
+    </tr>
+  <% end %>
+
+</table>
